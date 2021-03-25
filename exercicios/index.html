@@ -3,12 +3,17 @@
   <head>
     <title>Monster Slayer</title>
     <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="foundation.min.css" />
     <link rel="stylesheet" href="app.css" />
   </head>
 
   <body>
     <style>
+       /* .animate__animated.animate__shakeY {
+        --animate-duration:2 ;
+        
+      } */
       .barra-verde{
         background-color: green;
         color: white;
@@ -20,6 +25,12 @@
         color: white;
         margin: 0;
       }
+      .exer{
+        display: flex;
+        justify-content: left;
+        margin: 30px;
+
+      }
     </style>
     <div class="exer">
       <a href="exercicios.html">Exercícios</a>
@@ -27,11 +38,12 @@
     <div id="app">
       <section class="row">
         <div class="small-6 columns">
-          <h1 class="text-center">YOU</h1>
+          <h1 class="text-center ">YOU</h1>
           <div class="healthbar">
             <div
               class="healthbar text-center"
-              :class="[lowhealthplayer ?'barra-vermelha': 'barra-verde']"
+              :class="[lowhealthplayer ?'barra-vermelha animate__animated animate__shakeX animate__infinite ': 'barra-verde']"
+              
               
               :style="{width:playerHealth+'%'}"
 
@@ -40,11 +52,11 @@
           </div>
         </div>
         <div class="small-6 columns"> 
-          <h1 class="text-center">MONSTER</h1>
+          <h1 class="text-center ">MONSTER</h1>
           <div class="healthbar">
             <div
-              class="healthbar text-center"
-              :class="[lowhealthmonstro ?'barra-vermelha': 'barra-verde']"
+              class="healthbar text-center "
+              :class="[lowhealthmonstro ?'barra-vermelha animate__animated animate__shakeX animate__infinite': 'barra-verde']"
               
               :style="{width:monsterHealth+'%'}"
             >{{monsterHealth}}</div>
@@ -60,14 +72,14 @@
       </section>
       <section class="row controls" v-if="startGame === false">
         <div class="small-12 columns">
-          <button id="start-game" @click="comecarJogo()">START NEW GAME</button>
+          <button id="start-game" @click="comecarJogo()" class="animate__animated animate__shakeY animate__infinite	infinite">START NEW GAME</button>
         </div>
       </section>
       <section class="row controls">
         <div class="small-12 columns">
           <button id="attack" @click="ataque()">ATTACK</button>
           <button id="special-attack" @click="specialAttack()">SPECIAL ATTACK</button>
-          <button id="heal" @click="heal()">HEAL</button>
+          <button id="heal" @click="heal()" >HEAL</button>
           <button id="give-up " @click="giveup()">GIVE UP</button>
         </div>
       </section>
